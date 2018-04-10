@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404
 from django.http import HttpRequest, HttpResponse
 from datetime import datetime
 from .models import Category, Product
+from cart.forms import CartAddProductForm
 
 # our views
 def product_list(request, category_slug=None):
