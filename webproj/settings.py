@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'app.apps.AppConfig',
+    'cart'
 ]
 
 MIDDLEWARE = [
@@ -121,3 +122,5 @@ USE_TZ = True
 STATIC_URL = '/static/'
 # added by HTZ
 STATIC_ROOT = os.path.join(BASE_DIR, 'app/static')
+
+CART_SESSION_ID = 'cart'
