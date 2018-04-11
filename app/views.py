@@ -1,8 +1,10 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpRequest, HttpResponse
 from datetime import datetime
 from .models import Category, Product
 from cart.forms import CartAddProductForm
+from django.contrib.auth import login, authenticate
+from django.contrib.auth.forms import UserCreationForm
 
 # our views
 def product_list(request, category_slug=None):
@@ -24,6 +26,20 @@ def product_detail(request, id, slug):
                   'shop/Products/detail.html',
                   {'product':product,
                    'cart_product_form':cart_product_form})
+
+def signup(request):
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            username = form.cleaned_data.get('username')
+            raw_password = form.cleaned_data.get('password1')
+            user = authenticate(username=username, password=raw_password)
+            login(request, user)
+            return redirect('/')
+    else:
+        form = UserCreationForm()
+    return render(request, 'registration/signup.html', {'form': form})
 
 # Create your views here.
 def home(request):
@@ -57,14 +73,7 @@ def about(request):
     return render(request, 'about.html', tparams)
 
 
-def login(request):
-    assert isinstance(request, HttpRequest)
-    tparams = {
-        'title': 'Login',
-        'message': 'Login page.',
-        'year': datetime.now().year,
-    }
-    return render(request, 'login.html', tparams)
+
 
 
 def layout(request):

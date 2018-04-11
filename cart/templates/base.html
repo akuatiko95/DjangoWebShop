@@ -10,22 +10,16 @@
 <body>
 
     <div id="header">
-        <a href="/" class="logo">
-            <button type="button" class="btn btn-default btn-sm">
-          <span class="glyphicon glyphicon-home"></span> Home
-        </button>
-
-        </a>
+        <a href="/" class="logo">My shop</a>
     </div>
 
     <div>
 
         {% if user.is_authenticated %}
-                <input type='submit' value='log out'style="float: right">
-                <input type='submit' value='register'style="float: right">
+            <a href = "{% url "app:logout" %}" class="button " style="float: right">Log out</a>
         {% else %}
-                 <input type='submit' value='login' style="float: right">
-                 <input type='submit' value='register'style="float: right">
+            <a href = "/login" class="button" style="float: right">Log in</a>
+            <a href = "/signup" class="button " style="float: right">Register</a>
         {% endif %}
 
     </div>

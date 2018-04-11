@@ -128,3 +128,5 @@ MEDIA_ROOT = os.path.join(BASE_DIR, '/media/')
 STATIC_ROOT = os.path.join(BASE_DIR, 'app/static')
 
 CART_SESSION_ID = 'cart'
+
+LOGIN_REDIRECT_URL = '/'

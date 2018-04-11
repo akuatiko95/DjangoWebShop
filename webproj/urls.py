@@ -18,13 +18,15 @@ from django.urls import path
 from django.conf.urls import url, include
 from django.conf import settings
 from django.conf.urls.static import static
+from django.contrib.auth import views as auth_views
 
 from app import views
 
 urlpatterns = [
     path('about/', views.about, name='about'),
-    path('login/', views.login, name='login'),
+    url(r'^login/$', auth_views.login, name='login'),
     path('layout/', views.layout, name='layout'),
+    url(r'^signup/$', views.signup, name='signup'),
     url(r'^admin/', admin.site.urls),
     url(r'^cart/',include(('cart.urls','cart'),namespace='cart')),
     url(r'^', include(('app.urls','app'), namespace='shop')),
