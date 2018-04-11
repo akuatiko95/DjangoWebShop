@@ -14,8 +14,18 @@
             <button type="button" class="btn btn-default btn-sm">
           <span class="glyphicon glyphicon-home"></span> Home
         </button>
+
         </a>
     </div>
+
+    <div>
+
+         <input type='submit' value='login' style="float: right">
+         <input type='submit' value='log out'style="float: right">
+         <input type='submit' value='register'style="float: right">
+
+    </div>
+
     <div if="subheader">
         <div class="cart">
             {% with total_items=cart|length %}
