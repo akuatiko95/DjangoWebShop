@@ -49,6 +49,15 @@
             </tr>
         </tbody>
     </table>
+
+    <div>
+
+    {% if user.is_authenticated %}
+                <input type='submit' value='Buy'style="float: right" color="green">
+        {% endif %}
+
+    </div>
+
     <p class="text-right">
         <a href = "{% url "app:product_list" %}" class="button light">Continue shopping</a>
     </p>
