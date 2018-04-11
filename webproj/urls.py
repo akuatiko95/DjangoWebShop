@@ -28,7 +28,7 @@ urlpatterns = [
     path('login/', views.login, name='login'),
     path('layout/', views.layout, name='layout'),
     url(r'^admin/', admin.site.urls),
-    url(r'^cart/',include('cart.urls',namespace='cart')),
+    url(r'^cart/',include(('cart.urls','cart'),namespace='cart')),
     url(r'^', include(('app.urls','app'), namespace='app')),
 ]
 
