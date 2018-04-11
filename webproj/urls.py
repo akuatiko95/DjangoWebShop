@@ -27,7 +27,7 @@ urlpatterns = [
     path('layout/', views.layout, name='layout'),
     url(r'^admin/', admin.site.urls),
     url(r'^cart/',include(('cart.urls','cart'),namespace='cart')),
-    url(r'^', include(('app.urls','app'), namespace='app')),
+    url(r'^', include(('app.urls','app'), namespace='shop')),
 ]
 
 if settings.DEBUG:
