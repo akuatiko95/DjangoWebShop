@@ -28,6 +28,7 @@ urlpatterns = [
     path('layout/', views.layout, name='layout'),
     url(r'^signup/$', views.signup, name='signup'),
     url(r'^admin/', admin.site.urls),
+    url(r'^thanks/$', views.thanks, name='thanks'),
     url(r'^cart/',include(('cart.urls','cart'),namespace='cart')),
     url(r'^', include(('app.urls','app'), namespace='shop')),
 ]

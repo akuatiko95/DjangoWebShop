@@ -74,7 +74,8 @@ def about(request):
 
 
 
-
-
 def layout(request):
     return render(request, 'layout.html')
+
+def thanks(request):
+    return render(request, 'shop/Products/thanks.html')
